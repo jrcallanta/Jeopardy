@@ -1,0 +1,62 @@
+@tailwind components;
+
+@layer components {
+    [id="modal-root"] {
+        pointer-events: none;
+    }
+
+    [id="modal-root"]:has(.question) {
+        backdrop-filter: blur(2rem);
+        background-color: rgba(32, 34, 99, 0.75);
+        pointer-events: all;
+    }
+
+    [id="gameboard-root"] .player_column input:focus {
+        outline: none;
+        background-color: #fff1;
+    }
+
+    [id="gameboard-root"] .player_column input:focus + .player_subtitle {
+        color: #fff;
+    }
+
+    [id="gameboard-root"] .player_column .player_subtitle {
+        transition: all 250ms ease-in-out;
+    }
+
+    [id="log-root"] {
+        pointer-events: none;
+    }
+
+    [id="log-root"]::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: #ffffff0a;
+        backdrop-filter: blur(3rem);
+        box-shadow: 0 0 2rem #0008;
+        pointer-events: none;
+    }
+
+    [id="log-root"] .log > .icon {
+        pointer-events: all;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    [id="log-root"]::before,
+    [id="log-root"] .log > *:not(.icon) {
+        transition: all 200ms ease;
+        opacity: 0;
+    }
+
+    [id="log-root"]:has([data-displayed="true"])::before,
+    [id="log-root"] .log > [data-displayed="true"] {
+        opacity: 1;
+        pointer-events: all;
+    }
+}

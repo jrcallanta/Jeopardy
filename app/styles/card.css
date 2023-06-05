@@ -1,0 +1,24 @@
+@tailwind components;
+
+@layer components {
+    .card {
+        background-color: #2f3174;
+        border-radius: theme("borderRadius.lg");
+        padding: theme("spacing.6");
+        box-shadow: theme("boxShadow.xl");
+        transition: all 50ms ease-out;
+        cursor: pointer;
+        color: #dfd66f;
+    }
+
+    .card:hover {
+        background-color: rgb(57, 59, 126);
+    }
+
+    .card[data-answered="true"] {
+        background-color: green;
+        opacity: 0.65;
+        box-shadow: none;
+        cursor: default;
+    }
+}
